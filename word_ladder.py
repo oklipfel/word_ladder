@@ -51,9 +51,9 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                     newq.append(i)
                     return newq
                 else:
-                    newCS = copy.copy(newq)
-                    newCS.append(i)
-                    q.append(newCS)
+                    new = copy.copy(newq)
+                    new.append(i)
+                    q.append(new)
                     dictionary.remove(i)
     return None
 
@@ -72,7 +72,7 @@ def verify_word_ladder(ladder):
         return False
     if len(ladder) == 1:
         return True
-    for i in range(len(ladder)-1):
+    for i in range(len(ladder) - 1):
         if not _adjacent(ladder[i], ladder[i + 1]):
             return False
     return True
